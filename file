@@ -1,0 +1,4 @@
+strlcpy
+memcpy
+memmove
+strlcat
