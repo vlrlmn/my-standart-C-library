@@ -3,6 +3,8 @@
 #include <libc.h>
 int main ()
 {
-	char s1[] = "-333";
-	printf("%d", atoi(s1));
+	char src[6] = "Hello";
+	char dst[4];
+	memmove(dst, src, 4);
+	printf("%s", dst);
 }

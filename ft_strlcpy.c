@@ -3,32 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:36:20 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/12 16:37:20 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/17 13:42:44 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned char*	p;
-	unsigned char*	q;
+    size_t i = 0;
 
-	p = (unsigned char*)dst;
-	q = (unsigned char*)src;
-
-	while(dstsize--)
-		*p++ = *q++;
-	return (0);
+    if (dstsize == 0)
+        return (ft_strlen(src));
+        
+    while (src[i] && i < dstsize - 1) {
+        dst[i] = src[i];
+        i++;
+    }
+    dst[i] = '\0';
+    
+    return (ft_strlen(src));
 }
 
 // int main()
 // {
 // 	char s1[] = "Hellooo";
 // 	char s2[3];
-// 	ft_strlcpy(s2, s1, 3);
+// 	ft_strlcpy(s2, s1, sizeof(s2));
 // 	printf("%s", s2);
 // }

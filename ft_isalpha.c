@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 11:58:21 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/03 17:25:32 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/14 13:08:30 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_isalpha(int c)
 {
 	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
+
 /*
 int main()
 {

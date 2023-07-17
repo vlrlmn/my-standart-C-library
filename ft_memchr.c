@@ -3,39 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 12:42:14 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/07 19:05:35 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/14 13:26:29 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// void *ft_memchr(const void *s, int c, size_t n)
-// {
-// 	while(n)
-// 	{
-// 		if (*s == (char*)c)
-// 			return((char*)s);
-// 		s++;
-// 		n--;
-// 	}
-// 	return((char*)s);
-// }
-
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t			i;
 	unsigned char	*str;
+	unsigned char	h;
 
-	i = 0;
+	h = (unsigned char)c;
 	str = (unsigned char *)s;
-	while (i < n)
+	while (n--)
 	{
-		if (str[i] == (unsigned char)c)
-			return (&str[i]);
-		i++;
+		if (*str == h)
+			return (str);
+		str++;
 	}
 	return (0);
 }
@@ -44,7 +32,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 // {
 // 	char *src = "12345566758";
 // 	char *ptr;
-// 	ptr = ft_memchr(src, '2', 6);
+// 	ptr = ft_memchr(src, '6', 3);
 // 	if(ptr)
 // 		printf("found");
 // 	else

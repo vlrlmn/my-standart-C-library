@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:19:07 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/03 17:26:24 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:17:52 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isprint(int c)
 {
-	return (c >= 32 && c <= 132);
+	return (c >= 32 && c <= 126);
 }

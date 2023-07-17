@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:16:39 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/03 17:25:54 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:23:21 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }
+
 /*
 int main()
 {

@@ -3,40 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:47:23 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/10 18:15:06 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:12:53 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char		*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
+	char	*str;
 	size_t	i;
-	size_t	j;
-	size_t end;
 
-	i = 0;
-	j = start;
-	end = start + len;
-	substr = (char *)malloc(sizeof(char) * len + 1);
-	if (!substr)
+	if (!s)
 		return (NULL);
-	while (start < end)
-	{
-		substr[i] = s[start];
-		i++;
-		start++;
-	}
-	substr[i] = '\0';
-	return (substr);
+	i = 0;
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	if (!(str = malloc(len + 1)))
+		return (NULL);
+	while (i < len)
+		str[i++] = s[start++];
+	str[i] = '\0';
+	return (str);
 }
 
-int main()
-{
-	char s[] = "ah123ssjdkfsfbsdfjkfm";
-	printf("%s", ft_substr(s, 4, 5));
-}
+// int main()
+// {
+// 	char s[] = "ah123ssjdkfsfbsdfjkfm";
+// 	printf("%s", ft_substr(s, 4, 5));
+// }

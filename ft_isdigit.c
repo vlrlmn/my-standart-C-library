@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:29:05 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/03 17:26:07 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/14 13:08:39 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
+
 /*
 int main()
 {

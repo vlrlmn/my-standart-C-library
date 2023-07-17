@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 15:00:45 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/12 15:02:58 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/14 16:58:31 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-	
-	i = 0;
-	while(s[i])
-	{
-		write(1, s[i], 1);
-		i++;
-	}
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
+
+// int main()
+// {
+// 	ft_putendl_fd("Hello World", 1);
+// }

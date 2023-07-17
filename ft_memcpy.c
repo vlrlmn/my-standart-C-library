@@ -3,30 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:09:40 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/10 16:13:46 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/17 13:15:42 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void    *ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	unsigned char	*p;
-	unsigned char	*q;
+    unsigned char    *p;
+    unsigned char    *q;
+    size_t    i;
 
-	p = (unsigned char *)dst;
-	q = (unsigned char *)src;
-
-	if (!p && !q)
-		return (NULL);
-	while (n--)
-	{
-		*p++ = *q++;
-	}
-	return (p);
+    if (!dst || !src)
+        return NULL;
+    p = (unsigned char *)dst;
+    q = (unsigned char *)src;
+    i = 0;
+    while (i < n)
+    {
+        p[i] = q[i];
+        i++;
+    }
+    return (dst);
 }
 
 // int main()

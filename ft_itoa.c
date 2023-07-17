@@ -3,53 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 12:48:53 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/12 19:00:51 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:13:29 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	rev_str(char *str)
+char    *ft_itoa(int n)
 {
-	int i;
-	char new_str;
-	
-	i = ft_strlen(str) - 1;
-	while(str[i])
-	{
-		new_str = str[i];
-		i--;
-	}
-	return(new_str);
+    char    *str;
+    int     digits;
+    int     number;
+    int     neg_flag;
+    char    ip;
+ 
+    digits = 0;
+    neg_flag = 0;
+    if (n < 0)
+    {
+        n = -1 * n;
+        neg_flag = 1;
+    }
+    number = n;
+    while(number > 0)
+    {
+        number = number/10;
+        digits++;
+    }
+    if (neg_flag)
+        digits = digits + 1;
+    str = (char*)malloc(sizeof(char)*(digits + 1));
+    str[digits + 1] = '\0';
+    number = n;
+    while (number)
+    {
+        ip = number % 10 + '0';
+        str[digits - 1] = ip;
+        digits--;
+        number = number/10;
+    }
+    if (neg_flag)
+        str[0] = '-';
+    return (str);
 }
 
-char	*ft_itoa(int n)
-{
-	int x = 34;
-	int	len;
-	char	*str;
-	int	i;
-	char	n;
-	
-	len = ft_strlen(n);
-	i = 0;
-	str = malloc(len + 1);
-	while (len > 0)
-	{
-		x /= 10;
-		x %= 10;
-		char n = x % 10; // 4
-		str[i++] = '0' + n;
-		len--;
-	}
-	n = rev_str(str);
-}
-
-int main()
-{
-	int c = 26373;
-	printf("%s", ft_itoa(c));
-}
+// int main()
+// {
+// 	int c = -1444;
+// 	printf("%s", ft_itoa(c));
+// }

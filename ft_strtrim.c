@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 12:33:25 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/12 11:50:54 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:07:57 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while(ft_strchr(set, s1[str_begin]) && str_begin <= str_end)
 		str_begin++;
 	if(str_begin > str_end)
-		return (ft_strdup(s1 + str_begin + 1));
+		return (ft_strdup(""));
 	while(ft_strchr(set, s1[str_end]) && str_end >= 0)
 		str_end--;
-	new_str = (char *)malloc(sizeof(char) * (str_end - str_begin + 1));
-	if(!new_str)
+	if (!(new_str = (char *)malloc(sizeof(char) * (str_end - str_begin + 2))))
 		return (NULL);
-	ft_strlcpy(new_str, &s1[str_begin], str_end - str_begin - 2);
+	ft_strlcpy(new_str, &s1[str_begin], str_end - str_begin + 2);
 	return(new_str);
 }
 
