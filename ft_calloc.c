@@ -6,30 +6,32 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:47:51 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/14 13:08:09 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/18 19:20:52 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*str;
-	size_t	amount;
+	void	*ptr;
+	size_t amount;
 
-	amount = count * size;
-	if (!(str = malloc(amount)))
+	if (count != 0 && INT_MAX / count < size) {
 		return (NULL);
-	ft_bzero(str, amount);
-	return (str);
+    }
+	amount = count * size;
+	if (!(ptr = malloc(amount)))
+		return (NULL);
+	ft_bzero(ptr, amount);
+	return (ptr);
 }
 
 // int	main(void)
 // {
 // 	char	*str;
 
-// 	str = ft_calloc(0, 5);
+// 	str = ft_calloc(-5, 0);
 // 	if (str != NULL)
 // 		printf("Success");
 // }

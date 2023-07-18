@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:43:19 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/16 13:34:18 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/18 16:47:42 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char *ft_strchr(const char *s, int c)
 {
-	while(s)
+	while (*s)
 	{
-		if(*s == c)
-			return ((char*)s);
-		else if(*s == '\0')
-			return(NULL);
+		if (*s == (char)c)
+			return ((char *)s);
 		s++;
 	}
-	return(0);
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }
 
 // int main()

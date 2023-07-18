@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:33:00 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/17 13:24:53 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/18 17:13:42 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	counter;
 
+	if (!s)
+		return (NULL);
 	counter = ft_strlen(s);
 	while (counter >= 0)
 	{
-		if (s[counter] == c)
+		if (s[counter] == (unsigned char)c)
 			return ((char *)s + counter);
 		counter--;
 	}

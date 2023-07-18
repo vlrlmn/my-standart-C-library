@@ -6,7 +6,7 @@
 #    By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 18:24:09 by daelee            #+#    #+#              #
-#    Updated: 2023/07/13 18:38:56 by lomakinaval      ###   ########.fr        #
+#    Updated: 2023/07/18 14:58:33 by lomakinaval      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ FILES = ft_memset \
 		ft_putstr_fd \
 		ft_putendl_fd \
 		ft_putnbr_fd \
+		ft_striteri \
 
 FILES_B = 	ft_lstnew \
 	  		ft_lstadd_front \
@@ -58,7 +59,7 @@ FILES_B = 	ft_lstnew \
 	  		ft_lstadd_back \
 	  		ft_lstdelone \
 	  		ft_lstclear \
-	  		ft_lstiter \
+	  		ft_lsstriteri \
 	  		ft_lstmap
 
 SRCS_DIR = ./

@@ -6,52 +6,71 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 12:48:53 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/17 19:13:29 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/18 14:28:52 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+int num_len(int n)
+{
+    int i;
+    long long int h;
+    
+    i = 0;
+    h = n; 
+    if (h == 0)
+        i = 1;
+    else if (h < 0)
+    {
+        h *= -1;
+        i++;
+        while(h > 0)
+        {
+            h /= 10;
+            i++;
+        }
+    }
+    else if (h > 0)
+    {
+        while(h > 0)
+        {
+            h /= 10;
+            i++;
+        }
+    }
+    return(i);
+}
 
 char    *ft_itoa(int n)
 {
     char    *str;
-    int     digits;
-    int     number;
-    int     neg_flag;
-    char    ip;
- 
-    digits = 0;
-    neg_flag = 0;
-    if (n < 0)
+    int digits;
+    int flag;
+    long long int h;
+
+    h = n;
+    flag = 0;
+    digits = num_len(h);
+    if (h < 0)
+	{
+		flag = 1;
+		h = -h;
+	}
+    if (!(str = (char*)malloc(sizeof(char) * (digits + 1))))
+        return (NULL);
+    str[digits] = '\0';
+    while (digits--)
     {
-        n = -1 * n;
-        neg_flag = 1;
+        str[digits] = (h % 10) + '0';
+		h /= 10;
     }
-    number = n;
-    while(number > 0)
-    {
-        number = number/10;
-        digits++;
-    }
-    if (neg_flag)
-        digits = digits + 1;
-    str = (char*)malloc(sizeof(char)*(digits + 1));
-    str[digits + 1] = '\0';
-    number = n;
-    while (number)
-    {
-        ip = number % 10 + '0';
-        str[digits - 1] = ip;
-        digits--;
-        number = number/10;
-    }
-    if (neg_flag)
+    if (flag)
         str[0] = '-';
     return (str);
 }
 
 // int main()
 // {
-// 	int c = -1444;
+// 	int c = -2147483648LL;
 // 	printf("%s", ft_itoa(c));
 // }

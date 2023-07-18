@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:37:50 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/17 13:45:13 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/18 18:02:51 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	const char *haystack_end;
 	const char *h;
 	const char *n;
+	size_t	haystack_len;
 
+	haystack_len = ft_strlen(haystack);
 	if (!*needle)
 		return ((char *)haystack);
-	haystack_end = haystack + len;
+	if (haystack_len < len)
+		haystack_end = haystack + haystack_len;
+	else
+		haystack_end = haystack + len;
 	while ((haystack < haystack_end) && *haystack)
 	{
 		h = haystack;
@@ -32,7 +37,6 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 		}
 		if (!*n)
 			return ((char *)haystack);
-
 		haystack++;
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:29:17 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/16 15:25:27 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/18 17:25:00 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
 /*
 int main()
 {

@@ -6,20 +6,20 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:09:40 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/17 13:15:42 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/18 16:41:05 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void    *ft_memcpy(void *dst, const void *src, size_t n)
 {
     unsigned char    *p;
     unsigned char    *q;
     size_t    i;
 
-    if (!dst || !src)
-        return NULL;
+    if (!dst && !src)
+        return (NULL);
     p = (unsigned char *)dst;
     q = (unsigned char *)src;
     i = 0;
