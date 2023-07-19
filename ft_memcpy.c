@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:09:40 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/18 16:41:05 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/19 12:10:02 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void    *ft_memcpy(void *dst, const void *src, size_t n)
     size_t    i;
 
     if (!dst && !src)
-        return (NULL);
+       return (NULL);
     p = (unsigned char *)dst;
     q = (unsigned char *)src;
     i = 0;

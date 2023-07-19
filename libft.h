@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:16:59 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/18 19:14:21 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/19 17:41:56 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-
 #include <stdio.h>
+#include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+
+typedef struct s_list
+{
+   void         *content;
+   struct s_list    *next;
+}            t_list;
 
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
