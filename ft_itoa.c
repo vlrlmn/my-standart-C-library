@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 12:48:53 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/18 14:28:52 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/21 12:27:45 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,46 @@ int num_len(int n)
 {
     int i;
     long long int h;
-    
+
     i = 0;
     h = n; 
     if (h == 0)
-        i = 1;
-    else if (h < 0)
+    {
+        return(1);
+    }
+    if (h < 0)
     {
         h *= -1;
         i++;
-        while(h > 0)
-        {
-            h /= 10;
-            i++;
-        }
     }
-    else if (h > 0)
+    while(h > 0)
     {
-        while(h > 0)
-        {
-            h /= 10;
-            i++;
-        }
+        h /= 10;
+        i++;
     }
     return(i);
 }
 
-char    *ft_itoa(int n)
+char* make_str(int digits, long long int h, int flag)
 {
     char    *str;
+
+    str = (char*)malloc(sizeof(char) * (digits + 1));
+    if (!str)
+        return (NULL);
+    str[digits] = '\0';
+    while (digits--)
+    {
+        str[digits] = (h % 10) + '0';
+		h /= 10;
+    }
+    if (flag)
+        str[0] = '-';
+    return (str);    
+} 
+
+char    *ft_itoa(int n)
+{
     int digits;
     int flag;
     long long int h;
@@ -56,17 +67,7 @@ char    *ft_itoa(int n)
 		flag = 1;
 		h = -h;
 	}
-    if (!(str = (char*)malloc(sizeof(char) * (digits + 1))))
-        return (NULL);
-    str[digits] = '\0';
-    while (digits--)
-    {
-        str[digits] = (h % 10) + '0';
-		h /= 10;
-    }
-    if (flag)
-        str[0] = '-';
-    return (str);
+    return make_str(digits, h , flag);
 }
 
 // int main()

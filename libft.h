@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:16:59 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/19 17:41:56 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/20 16:57:26 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char		**ft_split(char const *s, char c);
+t_list *ft_lstnew(void *content);
+void ft_lstadd_front(t_list **lst, t_list *new);
+int ft_lstsize(t_list *lst);
+
 
 #endif
