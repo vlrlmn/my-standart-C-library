@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:23:29 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/18 13:43:48 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/21 15:16:46 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,34 +52,43 @@ int word_length(char const *s, char c)
     return(i);
 }
 
-char    **ft_split(char const *s, char c)
+char** copy_words(char const *s, char c, int words, char** result)
 {
     int i;
     int j;
-    char **result;
-    int words;
     int word_len;
 
     i = 0;
     j = 0;
-    words = count_words(s, c);
-    if(!(result = (char**)malloc(sizeof(char*) * (words + 1))))
-		return (NULL);
     while(i < words && result)
     {
         while(s[j] && s[j] == c)
             j++;
         word_len = word_length(&s[j], c);
-        if(!(result[i] = malloc(sizeof(char) * (word_len + 1))))
+        result[i] = malloc(sizeof(char) * (word_len + 1));
+        if(!result[i])
 			return (NULL);
         ft_strlcpy(result[i], &s[j], word_len + 1);
-        result[i][word_len] = '\0';
         while(s[j] && s[j] != c)
             j++;
         i++;
     }
     result[i] = NULL;
-    return(result);
+    return result;
+}
+
+char    **ft_split(char const *s, char c)
+{
+    char **result;
+    int words;
+
+    if (!s)
+        return (NULL);
+    words = count_words(s, c);
+    result = (char**)malloc(sizeof(char*) * (words + 1));
+    if(!result)
+		return (NULL);
+    return(copy_words(s, c, words, result));
 }
 
 // int main()
