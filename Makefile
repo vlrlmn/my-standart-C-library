@@ -6,7 +6,7 @@
 #    By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 18:24:09 by daelee            #+#    #+#              #
-#    Updated: 2023/07/20 17:01:00 by lomakinaval      ###   ########.fr        #
+#    Updated: 2023/07/24 16:06:29 by lomakinaval      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,23 +59,22 @@ FILES_B = 	ft_lstnew \
 	  		ft_lstadd_back \
 	  		ft_lstdelone \
 	  		ft_lstclear \
-	  		ft_lsstriteri \
+	  		ft_lstiter \
 	  		ft_lstmap
 
-SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
+FILES_EXE = main
 
-OBJS_DIR = ./
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
+SRCS = $(addsuffix .c, $(FILES))
+SRCS_B = $(addsuffix .c, $(FILES_B))
 
+OBJS = $(addsuffix .o, $(FILES))
+OBJS_B = $(addsuffix .o, $(FILES_B))
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(AR) $@ $^
+	$(AR) $@ $^ 
 
 bonus: $(OBJS_B)
 	$(AR) $(NAME) $^
