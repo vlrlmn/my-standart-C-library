@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:55:28 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/18 16:40:25 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/25 15:57:33 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

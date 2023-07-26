@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:19:07 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/17 19:17:52 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/25 11:23:06 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

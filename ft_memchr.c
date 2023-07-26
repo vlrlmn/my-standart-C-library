@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 12:42:14 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/14 13:26:29 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/25 11:22:44 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

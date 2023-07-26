@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:29:17 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/18 17:25:00 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/25 11:21:55 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ size_t	ft_strlen(const char *s)
 }
 
 /*
-int main()
+int	main(void)
 {
-char c[] = "hello";
+char	c[] = "hello";
 printf("%zu", ft_strlen(c));
 }
 */

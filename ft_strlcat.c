@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:51:07 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/19 13:21:00 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/25 14:50:03 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t dst_len;
-	size_t src_len;
-	size_t i;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
 
+	if (!dst && !dstsize)
+		return (ft_strlen(src));
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
 	if (dstsize <= dst_len)
@@ -32,13 +34,13 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	return (dst_len + src_len);
 }
 
-#include <libc.h>
-int main()
-{
-	char s1[] = "Hello ";
-	char s2[] = " everyone";
-	ft_strlcat(s1, s2, 0);
-	printf("%lu\n", ft_strlcat(s1, s2, 0));
-	strlcat(s1, s2, 0);
-	printf("%lu\n", strlcat(s1, s2, 0));
-}
+// #include <libc.h>
+// int main()
+// {
+// 	char s1[] = "Hello ";
+// 	char s2[] = " everyone";
+// 	ft_strlcat(s1, s2, 0);
+// 	printf("%lu\n", ft_strlcat(s1, s2, 0));
+// 	strlcat(s1, s2, 0);
+// 	printf("%lu\n", strlcat(s1, s2, 0));
+// }

@@ -3,50 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:37:50 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/18 18:02:51 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/25 11:21:44 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	const char *haystack_end;
-	const char *h;
-	const char *n;
-	size_t	haystack_len;
+	size_t	i;
+	size_t	j;
 
-	haystack_len = ft_strlen(haystack);
 	if (!*needle)
 		return ((char *)haystack);
-	if (haystack_len < len)
-		haystack_end = haystack + haystack_len;
-	else
-		haystack_end = haystack + len;
-	while ((haystack < haystack_end) && *haystack)
+	if (!len)
+		return ((char *) NULL);
+	i = 0;
+	while (haystack[i] && i < len)
 	{
-		h = haystack;
-		n = needle;
-		while ((*h == *n) && *n && (h < haystack_end))
-		{
-			n++;
-			h++;
-		}
-		if (!*n)
-			return ((char *)haystack);
-		haystack++;
+		j = 0;
+		while (needle[j] && haystack[i + j] && needle[j] == haystack[i + j] && i
+			+ j < len)
+			j++;
+		if (!needle[j])
+			return ((char *)&haystack[i]);
+		if (!haystack[i + j] || i + j == len)
+			return ((char *) NULL);
+		i++;
 	}
-	return (NULL);
+	return ((char *) NULL);
 }
 
-// #include <string.h>
+// #include <printf.h>
+// #include <libc.h>
 // int main()
 // {
-// 	char s1[] = "Heeeellloooo";
-// 	char s2[] = "llo";
-// 	printf("%s\n", ft_strnstr(s1, s2, 20));
-// 	printf("%s", strnstr(s1, s2, 9));
+// 	printf("%s\n", ft_strnstr("Hello", "He", 3));
+// 	printf("%s\n", strnstr("Hello", "He", 3));
 // }

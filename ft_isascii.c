@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:16:39 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/13 13:23:21 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/25 11:31:35 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@ int	ft_isascii(int c)
 	return (c >= 0 && c <= 127);
 }
 
-/*
-int main()
-{
-    int c = ' ';
-    if(ft_isascii(c) == 1)
-        printf("Is ascii");
-	else
-    	printf("Not ascii");
-}
-*/
+// int main()
+// {
+//     int c = ' ';
+//     if(ft_isascii(c) == 1)
+//         printf("Is ascii");
+// 	else
+//     	printf("Not ascii");
+// }
