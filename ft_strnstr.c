@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:37:50 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:21:44 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:01:06 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return ((char *) NULL);
 }
-
-// #include <printf.h>
-// #include <libc.h>
-// int main()
-// {
-// 	printf("%s\n", ft_strnstr("Hello", "He", 3));
-// 	printf("%s\n", strnstr("Hello", "He", 3));
-// }

@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:30:54 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 13:47:08 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:59:34 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,3 @@ char	*ft_strdup(const char *s1)
 	*(new_str + len) = '\0';
 	return (new_str);
 }
-
-// int main()
-// {
-// 	char s1[] = "hello";
-// 	printf("%s", ft_strdup(s1));
-// }

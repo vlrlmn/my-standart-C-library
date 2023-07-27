@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:36:20 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:21:58 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:00:23 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	dst[i] = '\0';
 	return (ft_strlen(src));
 }
-
-// int main()
-// {
-// 	char s1[] = "Hellooo";
-// 	char s2[3];
-// 	ft_strlcpy(s2, s1, sizeof(s2));
-// 	printf("%s", s2);
-// }

@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:50:51 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/20 11:55:36 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:51:56 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,3 @@ void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }
-
-// int main()
-// {
-// 	char s[7] = "Hello!";
-// 	ft_bzero(s, 3);
-// 	printf("%s", s);
-// }

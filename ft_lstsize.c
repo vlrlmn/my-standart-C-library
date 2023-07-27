@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:51:47 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/26 18:33:19 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/07/27 12:56:58 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-
-// int main()
-// {
-// 	t_list *a;
-// 	int size;
-// 	a = ft_lstnew("Word 1");
-// 	a->next = ft_lstnew("Word 2");
-// 	a->next->next = ft_lstnew("Word 3");
-// 	size = ft_lstsize(a);
-// 	printf("list size is: %d", size);
-// }

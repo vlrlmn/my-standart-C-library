@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:47:51 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 13:20:46 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:52:01 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(ptr, amount);
 	return (ptr);
 }
-
-// int	main(void)
-// {
-// 	char	*str;
-
-// 	str = ft_calloc(-5, 0);
-// 	if (str != NULL)
-// 		printf("Success");
-// }

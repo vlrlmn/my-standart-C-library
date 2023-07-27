@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:23:29 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 13:45:43 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:59:25 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (copy_words(s, c, words, result));
 }
-
-// // int main()
-// // {
-// //     char **lines;
-// //     lines = ft_split("lorem ipsum dolor sit amet,
-// 		consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-// //     int i = 0;
-// //     while (lines[i])
-// // 	{
-// //         printf("%s\n", lines[i]);
-// //         i++;
-// //     }
-// // }

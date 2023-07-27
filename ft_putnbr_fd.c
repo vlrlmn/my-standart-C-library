@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 15:03:19 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:22:23 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:58:40 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,3 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd((n + '0'), fd);
 }
-
-// int main()
-// {
-//     ft_putnbr_fd(600438, 1);
-// }

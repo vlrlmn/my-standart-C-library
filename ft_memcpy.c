@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:09:40 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:22:39 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:58:21 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
-// int main()
-// {
-// 	char src[10] = "Hello";
-// 	char dst[10];
-// 	ft_memcpy(dst, src, 3);
-// 	printf("%s", dst);
-// }

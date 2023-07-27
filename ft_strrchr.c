@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:33:00 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:21:41 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:01:10 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-
-// int main()
-// {
-// 	char s[] = "abcdeafg";
-// 	char c = 'a';
-// 	printf("%s", ft_strrchr(s, c));
-// }

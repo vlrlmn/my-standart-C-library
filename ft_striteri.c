@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:53:50 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 13:48:38 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:59:49 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
-
-// void print_char(unsigned int index, char *c)
-// {
-// 	printf("Index: %u, Character: %c\n", index, *c);
-// }
-
-// int main()
-// {
-// 	ft_striteri(5, "h h a h");
-// }

@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:47:23 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:21:35 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:01:17 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-
-// int main()
-// {
-// 	char s[] = "ah123ssjdkfsfbsdfjkfm";
-// 	printf("%s", ft_substr(s, 4, 5));
-// }

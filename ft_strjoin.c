@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 11:39:45 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 13:48:45 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:00:11 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(new_str, s2, new_len + 1);
 	return (new_str);
 }
-
-// int main()
-// {
-// 	char s1[] = "Hello";
-// 	char s2[]= " world";
-// 	printf("%s", ft_strjoin(s1, s2));
-// }

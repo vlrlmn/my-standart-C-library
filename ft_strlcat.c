@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:51:07 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 14:50:03 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:00:17 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }
-
-// #include <libc.h>
-// int main()
-// {
-// 	char s1[] = "Hello ";
-// 	char s2[] = " everyone";
-// 	ft_strlcat(s1, s2, 0);
-// 	printf("%lu\n", ft_strlcat(s1, s2, 0));
-// 	strlcat(s1, s2, 0);
-// 	printf("%lu\n", strlcat(s1, s2, 0));
-// }

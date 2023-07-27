@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 12:42:14 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:22:44 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:57:34 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (0);
 }
-
-// int main()
-// {
-// 	char *src = "12345566758";
-// 	char *ptr;
-// 	ptr = ft_memchr(src, '6', 3);
-// 	if(ptr)
-// 		printf("found");
-// 	else
-// 		printf("Not found");
-// }

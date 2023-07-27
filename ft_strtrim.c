@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 12:33:25 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:21:38 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:01:13 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(new_str, &s1[str_begin], str_end - str_begin + 2);
 	return (new_str);
 }
-
-// int main()
-// {
-// 	char s[] = "jdfijfgmjfigknf";
-// 	char set[] = "jdf";
-// 	printf("%s", ft_strtrim(s, set));
-// }

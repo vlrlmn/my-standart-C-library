@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:29:17 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:21:55 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:00:27 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-/*
-int	main(void)
-{
-char	c[] = "hello";
-printf("%zu", ft_strlen(c));
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 12:48:53 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 12:20:14 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:52:23 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,3 @@ char	*ft_itoa(int n)
 	}
 	return (make_str(digits, h, flag));
 }
-
-// int main()
-// {
-// 	printf("%s\n", ft_itoa(010));
-// }
