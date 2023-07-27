@@ -3,36 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:44:42 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/26 16:16:28 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/27 10:37:02 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 
-#include <stdio.h>
-
-int	ft_atoi(const char *str)
+int do_atoi(const char *str, int i, int flag)
 {
-	int			i;
-	int			flag;
 	long long	result;
-
-	i = 0;
-	flag = 1;
-	result = 0;
-	while (str[i] == ' ' || ((9 <= str[i]) && (str[i] <= 13)))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		flag = -1;
-		i++;
-	}
-	while (str[i] && ('0' <= str[i]) && (str[i] <= '9'))
+	
+    result = 0;
+    while (str[i] && ('0' <= str[i]) && (str[i] <= '9'))
 	{
 		if (flag == 1 && result * 10 < result)
 			return (-1);
@@ -42,6 +27,25 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (flag * result);
+}
+
+int	ft_atoi(const char *str)
+{
+	int			i;
+	int			flag;
+	
+	i = 0;
+	flag = 1;
+	while (str[i] == ' ' || ((9 <= str[i]) && (str[i] <= 13)))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		flag = -1;
+		i++;
+	}
+	return do_atoi(str, i, flag);
 }
 
 // #include <stdlib.h>

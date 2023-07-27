@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:51:47 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 11:22:46 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/26 18:33:19 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,11 @@ int	ft_lstsize(t_list *lst)
 
 // int main()
 // {
-//     t_list *elem1 = (t_list *)malloc(sizeof(t_list));
-//     elem1->content = "Element 1";
-//     elem1->next = NULL;
-
-//     t_list *elem2 = (t_list *)malloc(sizeof(t_list));
-//     elem2->content = "Element 2";
-//     elem2->next = NULL;
-
-//     t_list *elem3 = (t_list *)malloc(sizeof(t_list));
-//     elem3->content = "Element 3";
-//     elem3->next = NULL;
-
-//     t_list *head = elem1;
-//     elem1->next = elem2;
-//     elem2->next = elem3;
-
-//     int size = ft_lstsize(head);
-//     printf("%d\n", size);
+// 	t_list *a;
+// 	int size;
+// 	a = ft_lstnew("Word 1");
+// 	a->next = ft_lstnew("Word 2");
+// 	a->next->next = ft_lstnew("Word 3");
+// 	size = ft_lstsize(a);
+// 	printf("list size is: %d", size);
 // }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+         #
+#    By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 10:45:42 by vlomakin          #+#    #+#              #
-#    Updated: 2023/07/26 14:23:31 by vlomakin         ###   ########.fr        #
+#    Updated: 2023/07/26 19:53:23 by lomakinaval      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRC_B = 	ft_lstnew.c \
 	  		ft_lstdelone.c \
 	  		ft_lstclear.c \
 	  		ft_lstiter.c \
+			ft_lstmap.c \
 
 OBJ =	$(SRC:.c=.o)
 

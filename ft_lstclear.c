@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:56:58 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 14:56:07 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/26 19:23:00 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,30 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		*lst = a;
 	}
 }
+
+
+// void del(void *a)
+// {
+// 	return ;
+// }
+
+// int main()
+// {
+// 	t_list *a;
+
+// 	a = ft_lstnew("W1");
+// 	a->next = ft_lstnew("W2");
+// 	a->next->next = ft_lstnew("W3");
+
+// 	ft_lstclear(&(a->next), del);
+	
+// 	t_list *tmp = a;
+// 	while(tmp)
+// 	{
+// 		printf("%s\n", (char*)tmp->content);
+// 		tmp = tmp->next;
+// 	}
+// }
 
 // #include <stdio.h>
 // void del(void *a)

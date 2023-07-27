@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:55:23 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 14:54:40 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/26 18:57:16 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,22 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 // int main()
 // {
-//     t_list *elem1 = (t_list *)malloc(sizeof(t_list));
-//     elem1->content = "Element 1";
-//     elem1->next = NULL;
+// 	t_list *a;
+// 	t_list *to_add;
+// 	to_add = ft_lstnew("Old_first");
+// 	to_add->next = ft_lstnew("Old_second");
+// 	to_add->next->next = ft_lstnew("Old_third");
 
-//     t_list *elem2 = (t_list *)malloc(sizeof(t_list));
-//     elem2->content = "Element 2";
-//     elem2->next = NULL;
+// 	a = ft_lstnew("Word 1");
+// 	a->next = ft_lstnew("Word 2");
+// 	a->next->next = ft_lstnew("I'll put that crap in the end");
+	
+// 	ft_lstadd_back(&to_add, a->next->next);
+// 	t_list *tmp = to_add;
 
-//     t_list *elem3 = (t_list *)malloc(sizeof(t_list));
-//     elem3->content = "Element 3";
-//     elem3->next = NULL;
-
-//     t_list *head = elem1;
-//     elem1->next = elem2;
-
-//     ft_lstadd_back(&head, elem3);
-//     t_list *current = head;
-//     printf("%s\n", (char *)current->content);
+// 	while(tmp!= NULL)
+// 	{
+// 		printf("%s\n", (char*)tmp->content);
+// 		tmp = tmp->next;
+// 	}
 // }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:58:14 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 15:39:03 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/26 20:00:28 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,23 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	}
 }
 
-// #include <stdio.h>
-
-// void f(void *up_symbol)
+// void func(void *up_symbol)
 // {
-//     *((char*)up_symbol) = 'W';
+// 	*(char*)up_symbol = '-';
 // }
-
 // int main()
 // {
-//     t_list *lst;
-//     char word1[] = "word 1";
-//     char word2[] = "word 2";
-//     char word3[] = "word 3";
-//     char word4[] = "word 4";
-
-//     lst = ft_lstnew(word1);
-//     lst->next = ft_lstnew(word2);
-//     lst->next->next = ft_lstnew(word3);
-//     lst->next->next->next = ft_lstnew(word4);
-
-//     ft_lstiter(lst, f);
-//     while(lst)
-//     {
-//         printf("%s\n", (char*)lst->content);
-//         lst = lst->next;
-//     }
+// 	t_list *a;
+// 	char w1[] = "word1";
+// 	char w2[] = "word2";
+// 	char w3[] = "word3";
+// 	a = ft_lstnew(w1);
+// 	a->next = ft_lstnew(w2);
+// 	a->next->next = ft_lstnew(w3);
+// 	ft_lstiter(a, func);
+// 	while(a)
+// 	{
+// 		printf("%s\n", (char*)a->content);
+// 		a = a->next;
+// 	}
 // }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:56:14 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/25 14:57:44 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/07/26 19:22:17 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,27 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	free(lst);
 }
 
-// #include <stdio.h>
 // void del(void *a)
 // {
-//     printf("removed: %s\n", (char*)a);
-//     return ;
+// 	return ;
 // }
 
 // int main()
 // {
-//     t_list *lst;
-//     t_list *lst1;
+// 	t_list *a;
 
-//     lst = ft_lstnew("Word 1");
-//     lst->next = ft_lstnew("word 2");
-//     lst->next->next = ft_lstnew("word 3");
-//     lst->next->next->next = ft_lstnew("word 4");
+// 	a = ft_lstnew("W1");
+// 	a->next = ft_lstnew("W2");
+// 	a->next->next = ft_lstnew("W3");
 
-//     ft_lstdelone((lst->next), del);
-//     lst1 = lst;
-//     while(lst)
-//     {
-//         printf("%s\n", (char*)lst->content);
-//         lst = lst->next;
-//     }
-//     ft_lstdelone(lst1, del);
+// 	t_list *to_delete = a->next;
+// 	a->next = a->next->next;
+// 	ft_lstdelone(to_delete, del);
+	
+// 	t_list *tmp = a;
+// 	while(tmp)
+// 	{
+// 		printf("%s\n", (char*)tmp->content);
+// 		tmp = tmp->next;
+// 	}
 // }
