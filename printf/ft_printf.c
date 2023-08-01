@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:16:10 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/31 17:30:20 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:29:44 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@ int	print_format(char specifier, va_list ap)
 	else if (specifier == 's')
 		count += print_str(va_arg(ap, char *));
 	else if (specifier == 'p')
-		count += print_pointer();
-	else if (specifier == 'd')
+		count += print_pointer(va_arg(ap, unsigned long int));
+	else if (specifier == 'd' || specifier == 'i')
 		count += print_digit((long)va_arg(ap, int), 10);
-	else if (specifier == 'i')
-		count += print_integer();
 	else if (specifier == 'u')
-		count += print_unsigned();
+		count += print_unsigned((unsigned int)va_arg(ap, int), 10);
 	else if (specifier == 'x')
-		count += print_digit((long)va_arg(ap, unsigned int), 16);
+		count += print_hex((unsigned int)va_arg(ap, int), 16, 'x');
 	else if (specifier == 'X')
-		count += print_upper_hex();
+		count += print_hex((unsigned int)va_arg(ap, int), 16, 'X');
 	else if (specifier == '%')
-		print_char('%');
+		return(print_char('%'));
 	else
 		count += write(1, &specifier, 1);
 	return (count);
@@ -47,6 +45,8 @@ int	ft_printf(const char *format, ...)
 
 	va_start(ap, format);
 	count = 0;
+	if (format == NULL)
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')

@@ -3,40 +3,43 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+         #
+#    By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 12:14:58 by vlomakin          #+#    #+#              #
-#    Updated: 2023/07/31 12:15:53 by vlomakin         ###   ########.fr        #
+#    Updated: 2023/08/01 16:35:35 by lomakinaval      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
+NAME	= libftprintf.a
 
-SRC = 
+SRCS	= ft_printf.c \
+	   	print_char.c \
+		print_digit.c \
+		print_integer.c \
+		print_pointer.c \
+		print_str.c \
+		print_unsigned.c \
+		print_hex.c \
 
+OBJS	= $(SRCS:.c=.o)
 
-OBJ =	$(SRC:.c=.o)
+CC	= cc
 
-OBJ_B =	$(SRC_B:.c=.o)
+RM	= rm -f
 
-$(NAME): $(OBJ)
-	@$(AR) $(NAME) $(OBJ)
+CFLAGS	= -Wall -Wextra -Werror
 
-all: $(NAME)
+all:	$(NAME)
 
-bonus: $(OBJ) $(OBJ_B)
-	@$(AR) $(NAME) $(OBJ) $(OBJ_B)
+$(NAME):	$(OBJS)
+			ar rcs $(NAME) $(OBJS)
 
 clean:
-	@$(RM) $(OBJS) $(OBJS_B)
+			$(RM) $(OBJS)
 
-fclean: clean
-	@$(RM) $(NAME) $(OBJ) $(OBJ_B)
+fclean:		clean
+			$(RM) $(NAME)
 
-re: fclean all
+re:			fclean all
 
-.PHONY: bonus all clean fclean re
+.PHONY:		all clean fclean re

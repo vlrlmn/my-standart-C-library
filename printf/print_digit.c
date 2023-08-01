@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 15:54:23 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/31 16:20:24 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/08/01 16:31:38 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	print_digit(long n, int base)
 	int		count;
 	char	*symbols;
 
-	symbols = "0123456789abcdef";
+	symbols = "0123456789";
 	if (n < 0)
 	{
 		print_char('-');

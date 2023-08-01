@@ -3,33 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 16:16:25 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/31 17:15:34 by vlomakin         ###   ########.fr       */
+/*   Created: 2023/07/31 16:16:40 by vlomakin          #+#    #+#             */
+/*   Updated: 2023/08/01 19:15:50 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	print_digit(long n, int base)
+int	print_hex(unsigned long n, unsigned int base, char flag)
 {
 	int		count;
 	char	*symbols;
 
-	symbols = "0123456789abcdef";
-	if (n < 0)
-	{
-		print_char('-');
-		return (print_digit(-n, base) + 1);
-	}
-	else if (n < base)
+	if (flag == 'x')
+		symbols = "0123456789abcdef";
+	else
+		symbols = "0123456789ABCDEF";
+	if (n < base)
 	{
 		return (print_char(symbols[n]));
 	}
 	else
 	{
-		count = print_digit(n / base, base);
-		return (count + print_digit(n % base, base));
+		count = print_hex((n / base), base, flag);
+		return (count + print_hex((n % base), base, flag));
 	}
 }
