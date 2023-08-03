@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_pointer.c                                    :+:      :+:    :+:   */
+/*   print_integer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 16:12:21 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/08/01 19:13:14 by lomakinaval      ###   ########.fr       */
+/*   Created: 2023/07/31 16:20:30 by vlomakin          #+#    #+#             */
+/*   Updated: 2023/08/02 12:37:41 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../includes/libftprintf.h"
 
-int	print_pointer(unsigned long int n)
+
+int	print_integer(long n, int base)
 {
 	int		count;
-	
-	count = 0;
-	write(1, "0x", 2);
-	if (n == 0)
+	char	*symbols;
+
+	symbols = "0123456789abcdef";
+	if (n < 0)
 	{
-		write(1, "0", 1);
-		return (count + 3);
+		print_char('-');
+		return (print_digit(-n, base) + 1);
+	}
+	else if (n < base)
+	{
+		return (print_char(symbols[n]));
 	}
 	else
 	{
-		count = print_hex(n, 16, 'x');
+		count = print_digit(n / base, base);
+		return (count + print_digit(n % base, base));
 	}
-		return(count + 2);
 }

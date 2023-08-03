@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 15:54:54 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/31 16:20:21 by vlomakin         ###   ########.fr       */
+/*   Created: 2023/07/31 15:53:59 by vlomakin          #+#    #+#             */
+/*   Updated: 2023/08/03 12:39:16 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../includes/libftprintf.h"
 
-int	print_char(int c)
+int	print_str(char *str)
 {
-	return (write(1, &c, 1));
+	int	count;
+
+	count = 0;
+	if (!str)
+			str = "(null)";
+	while (*str)
+	{
+		if(print_char((int)*str) != 1){
+			return (count);
+		}
+		++count;
+		++str;
+	}
+	return (count);
 }

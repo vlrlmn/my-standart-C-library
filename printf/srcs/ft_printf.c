@@ -6,11 +6,11 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:16:10 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/08/01 19:29:44 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/08/03 12:32:38 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../includes/libftprintf.h"
 
 int	print_format(char specifier, va_list ap)
 {
@@ -51,8 +51,15 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 			count += print_format(*(++format), ap);
-		else
-			count += write(1, format, 1);
+		else{
+			int res = write(1, format, 1);
+			if (res != 1){
+				count = -1;
+			}
+			else{
+				count += res;
+			}
+		}
 		++format;
 	}
 	va_end(ap);

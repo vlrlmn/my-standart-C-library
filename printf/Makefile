@@ -6,20 +6,20 @@
 #    By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 12:14:58 by vlomakin          #+#    #+#              #
-#    Updated: 2023/08/01 16:35:35 by lomakinaval      ###   ########.fr        #
+#    Updated: 2023/08/03 13:03:45 by lomakinaval      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
-SRCS	= ft_printf.c \
-	   	print_char.c \
-		print_digit.c \
-		print_integer.c \
-		print_pointer.c \
-		print_str.c \
-		print_unsigned.c \
-		print_hex.c \
+SRCS	= ./srcs/ft_printf.c \
+	   	./srcs/print_char.c \
+		./srcs/print_digit.c \
+		./srcs/print_integer.c \
+		./srcs/print_pointer.c \
+		./srcs/print_str.c \
+		./srcs/print_unsigned.c \
+		./srcs/print_hex.c \
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -32,13 +32,13 @@ CFLAGS	= -Wall -Wextra -Werror
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+			@ar rcs $(NAME) $(OBJS)
 
 clean:
-			$(RM) $(OBJS)
+			@$(RM) $(OBJS)
 
 fclean:		clean
-			$(RM) $(NAME)
+			@$(RM) $(NAME)
 
 re:			fclean all
 

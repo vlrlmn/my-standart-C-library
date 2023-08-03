@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_upper_hex.c                                  :+:      :+:    :+:   */
+/*   print_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 16:16:40 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/31 16:44:45 by vlomakin         ###   ########.fr       */
+/*   Created: 2023/07/31 15:54:23 by vlomakin          #+#    #+#             */
+/*   Updated: 2023/08/02 12:37:35 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../includes/libftprintf.h"
 
 int	print_digit(long n, int base)
 {
 	int		count;
 	char	*symbols;
 
-	symbols = "0123456789ABCDEF";
+	symbols = "0123456789";
 	if (n < 0)
 	{
 		print_char('-');
