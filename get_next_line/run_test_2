@@ -1,0 +1,39 @@
+cc get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=10
+echo 10
+./a.out
+echo \
+
+cc get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=7
+echo 7
+./a.out 
+echo \
+
+cc get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=6
+echo 6
+./a.out 
+echo \
+
+cc get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=5
+echo 5
+./a.out 
+echo \
+
+cc get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=4
+echo 4
+./a.out 
+echo \
+
+cc get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=3
+echo 3
+./a.out 
+echo \
+
+cc get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=2
+echo 2
+./a.out 
+echo \
+
+cc get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=1
+echo 1
+./a.out 
+echo \
