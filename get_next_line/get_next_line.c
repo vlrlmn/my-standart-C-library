@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:39:33 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/09/06 17:29:29 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/09/06 23:05:03 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+
 
 char	*join_read(char *save_line, char *buf)
 {
@@ -66,7 +68,7 @@ char	*final_line(char *save_line)
 		i++;
 	}
 	if (save_line[i] && save_line[i] == '\n')
-		result[i] = '\n';
+		result[i++] = '\n';
 	return (result);
 }
 
@@ -85,7 +87,6 @@ char	*read_to_n(int fd, char *save_line)
 		if (bytes_read < 0)
 		{
 			free(buf);
-			free(save_line);
 			return (NULL);
 		}
 		buf[bytes_read] = '\0';
@@ -105,25 +106,28 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || (read(fd, 0, 0) < 0))
 		return (NULL);
 	save_line = read_to_n(fd, save_line);
-	if (save_line == NULL)
+	if (!save_line)
 		return (NULL);
 	result = final_line(save_line);
 	save_line = remainder_chars(save_line);
 	return (result);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	int fd;
+// int	main(void)
+// {
+// 	int fd;
 
-	fd = open("test.txt", O_RDONLY);
- 	char *line = get_next_line(fd);
-	while (line)
-	{printf("%s", get_next_line(fd));
- 	line = get_next_line(fd);
-	}
-	// printf("%s", get_next_line(fd));
-	close(fd);
-}
+// 	fd = open("alice_in_wonderland.txt", O_RDONLY);
+//  	char *line = get_next_line(fd);
+
+// 	while (line)
+// 	{
+// 		printf("%s", line);
+// 		free(line);
+//  		line = get_next_line(fd);
+// 	}
+// 	// printf("%s", get_next_line(fd));
+// 	close(fd);
+// }
