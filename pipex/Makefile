@@ -1,6 +1,6 @@
 NAME = pipex
 CC = cc
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra -g3 -fsanitize=address
 RM = rm -rf
 SRCS = pipex.c
 OBJS = $(SRCS:.c=.o)

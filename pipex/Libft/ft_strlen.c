@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:29:17 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/27 13:00:27 by vlomakin         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:04:54 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	unsigned int	i;
 
+	if(!s || s == NULL)
+		exit(1);
 	i = 0;
 	while (s[i])
 		i++;

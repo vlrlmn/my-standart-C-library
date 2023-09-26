@@ -1,12 +1,12 @@
 #ifndef PIPEX_H
-#define PIPEX_H
+# define PIPEX_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <sys/wait.h>
-#include "Libft/libft.h"
+# include "Libft/libft.h"
+# include <errno.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/wait.h>
+# include <unistd.h>
 
 #endif
