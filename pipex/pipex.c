@@ -1,4 +1,87 @@
 #include "pipex.h"
+# include "../Libft/libft.h"
+
+// void ft_free_str_arr(char **arr)
+// {
+// 	int i;
+// 	i = 0;
+
+// 	if (!arr)
+// 		return;
+// 	while(arr[i])
+// 	{
+// 		free(arr[i]);
+// 		i++;
+// 	}
+// 	free(arr);
+// }
+
+// char *get_cmd_path(char **paths, char *sub)
+// {
+// 	char *cmd_path;
+// 	int i;
+// 	i = 0;
+
+// 	while(paths && paths[i])
+// 	{
+// 		cmd_path = ft_strjoin(paths[i], sub);
+// 		if (!cmd_path)
+// 			break;
+// 		if (!access(cmd_path, F_OK | X_OK))
+// 			break;
+// 		free(cmd_path);
+// 		cmd_path = NULL;
+// 		i++;
+// 	}
+// 	return (cmd_path);
+// }
+
+// char *get_env_path(char **envp)
+// {
+// 	int i;
+// 	char *res;
+
+// 	i = 0;
+// 	while(envp[i] && !ft_strnstr(envp[i], "PATH=", 5))
+// 		i++;
+// 	if(!envp[i])
+// 		return (NULL);
+// 	res = ft_substr(envp[i], 5, ft_strlen((envp[i]) - 5));
+// 	return (res);
+// }
+
+// char *get_actual_cmd(char *cmd)
+// {
+// 	char **result;
+
+// 	result = ft_split(cmd, ' ');
+// 	return (*result);
+// }
+
+// char	*get_path(char **envp, char *cmd)
+// {
+// 	char	**paths;
+// 	char	*cmd_path;
+// 	char	*sub;
+// 	char	*actual_cmd;
+// 	char	*env_path;
+
+// 	actual_cmd = get_actual_cmd(cmd);
+// 	env_path = get_env_path(envp);
+// 	if (!env_path)
+// 	{
+// 		free(actual_cmd);
+// 		return (NULL);
+// 	}
+// 	paths = ft_split(env_path, ':');
+// 	free(env_path);
+// 	sub = ft_strjoin("/", actual_cmd);
+// 	cmd_path = get_cmd_path(paths, sub);
+// 	free(sub);
+// 	free(actual_cmd);
+// 	ft_free_str_arr(paths);
+// 	return (cmd_path);
+// }
 
 char	*get_path(char **envp, char *cmd)
 {
@@ -9,14 +92,10 @@ char	*get_path(char **envp, char *cmd)
 	cmd = *ft_split(cmd, ' ');
 	while (*envp && !ft_strnstr(*envp, "PATH=", 5))
 		envp++;
-	if(!envp && !ft_strnstr(*envp, "PATH=", 5))
-	{
-		perror("No PATH");
-		free(cmd);
-		return(NULL);
-	}
+	if (!*envp)
+		return (NULL);
 	sub = ft_substr(*envp, 5, ft_strlen(*envp) - 5);
-	paths = ft_split(sub, ':'); 
+	paths = ft_split(sub, ':');
 	free(sub);
 	sub = ft_strjoin("/", cmd);
 	while (*paths)
@@ -24,7 +103,7 @@ char	*get_path(char **envp, char *cmd)
 		cmd_path = ft_strjoin(*paths, sub);
 		if (!cmd_path)
 			return (NULL);
-		if (!access(cmd_path, F_OK | X_OK))
+		if (!access(cmd_path, F_OK))
 			break ;
 		free(cmd_path);
 		paths++;
@@ -96,12 +175,7 @@ int	main(int argc, char *argv[], char **envp)
 
 	if (argc != 5)
 	{
-		write(2, "Usage: ./pipex file1 cmd1 cmd2 file2\n", 38);
-		exit(EXIT_FAILURE);
-	}
-	if (!envp)
-	{
-		write(2, "Usage: ./pipex file1 cmd1 cmd2 file2\n", 38);
+		perror("Usage: ./pipex file1 cmd1 cmd2 file2\n");
 		exit(EXIT_FAILURE);
 	}
 	if (pipe(fd) == -1)
@@ -112,7 +186,7 @@ int	main(int argc, char *argv[], char **envp)
 	pid = fork();
 	if (pid == -1)
 	{
-		write(2, "Fork error", 11);
+		perror("Fork error");
 		exit(EXIT_FAILURE);
 	}
 	if (pid == 0)

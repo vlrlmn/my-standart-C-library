@@ -4,23 +4,23 @@ CFLAGS = -Werror -Wall -Wextra -g3 -fsanitize=address
 RM = rm -rf
 SRCS = pipex.c
 OBJS = $(SRCS:.c=.o)
-LIBFT = libft/libft.a
+LIBFT = Libft/libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -LLibft -lft -o $(NAME)
 
 $(LIBFT):
-	make -C libft
+	make -C Libft
 
 clean:
 	$(RM) $(OBJS)
-	make clean -C libft 
+	make clean -C Libft 
 
 fclean: clean
 	$(RM) $(NAME)
-	make fclean -C libft 
+	make fclean -C Libft 
 
 re: fclean all
 
