@@ -1,5 +1,4 @@
 #include "pipex.h"
-# include "../Libft/libft.h"
 
 // void ft_free_str_arr(char **arr)
 // {
@@ -83,6 +82,18 @@
 // 	return (cmd_path);
 // }
 
+void	reterr( char *err_msg)
+{
+	write (1, err_msg, ft_strlen(err_msg));
+	exit(EXIT_FAILURE);
+}
+
+void	reterr_f(char *err_msg)
+{
+	write (1, err_msg, ft_strlen(err_msg));
+	exit(EXIT_FAILURE);
+}
+
 char	*get_path(char **envp, char *cmd)
 {
 	char	**paths;
@@ -92,8 +103,12 @@ char	*get_path(char **envp, char *cmd)
 	cmd = *ft_split(cmd, ' ');
 	while (*envp && !ft_strnstr(*envp, "PATH=", 5))
 		envp++;
-	if (!*envp)
-		return (NULL);
+	if (!*envp || !envp)
+	{
+		free(cmd);
+		reterr("No such file or directory");
+		exit(1);
+	}
 	sub = ft_substr(*envp, 5, ft_strlen(*envp) - 5);
 	paths = ft_split(sub, ':');
 	free(sub);
@@ -119,16 +134,14 @@ void	exec_cmd(char **envp, char *cmd)
 	int		exec_status;
 
 	path = get_path(envp, cmd);
-	if (!path || path == NULL )
+	if (!path)
 	{
-		perror("Command not found");
-		exit(EXIT_FAILURE);
+		perror(cmd);
 	}
 	exec_status = execve(path, ft_split(cmd, ' '), envp);
 	if (exec_status == -1)
 	{
 		perror("Failed to complete command");
-		exit(EXIT_FAILURE);
 	}
 }
 
@@ -140,8 +153,7 @@ void	cmd2_exec(char *file2, char *cmd2, int fd[2], char **envp)
 	fd_n = open(file2, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fd_n == -1)
 	{
-		perror("File cannot be opened");
-		exit(EXIT_FAILURE);
+		strerror(errno);
 	}
 	dup2(fd[0], STDIN_FILENO);
 	close(fd[0]);
@@ -158,8 +170,7 @@ void	cmd1_exec(char *file1, char *cmd1, int fd[2], char **envp)
 	fd_n = open(file1, O_RDONLY);
 	if (fd_n == -1)
 	{
-		perror("File cannot be opened");
-		exit(EXIT_FAILURE);
+		strerror(errno);
 	}
 	dup2(fd[1], STDOUT_FILENO);
 	close(fd[1]);
@@ -170,24 +181,22 @@ void	cmd1_exec(char *file1, char *cmd1, int fd[2], char **envp)
 
 int	main(int argc, char *argv[], char **envp)
 {
-	int fd[2];
-	pid_t pid;
+	int	fd[2];
+	pid_t	pid;
 
 	if (argc != 5)
 	{
-		perror("Usage: ./pipex file1 cmd1 cmd2 file2\n");
-		exit(EXIT_FAILURE);
+		write(1, "Usage: ./pipex file1 cmd1 cmd2 file2\n", 38);
+		exit(1);
 	}
 	if (pipe(fd) == -1)
 	{
 		perror("Pipe error");
-		exit(EXIT_FAILURE);
 	}
 	pid = fork();
 	if (pid == -1)
 	{
-		perror("Fork error");
-		exit(EXIT_FAILURE);
+		perror("Fork failed");
 	}
 	if (pid == 0)
 	{

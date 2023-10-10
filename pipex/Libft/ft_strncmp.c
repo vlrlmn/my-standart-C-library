@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:09:20 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/09/25 15:22:05 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2023/10/10 14:01:52 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		s1++;
 		s2++;
 	}
-	if (n == SIZE_MAX)
+	if (n == INT_MAX)
 		return (0);
 	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
