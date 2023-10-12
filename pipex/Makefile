@@ -2,7 +2,7 @@ NAME = pipex
 CC = cc
 CFLAGS = -Werror -Wall -Wextra -g3 -fsanitize=address
 RM = rm -rf
-SRCS = pipex.c
+SRCS = pipex.c pipex_utils.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = Libft/libft.a
 
