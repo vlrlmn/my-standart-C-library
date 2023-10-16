@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alabdull <alabdull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 20:09:20 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/10/10 14:01:52 by vlomakin         ###   ########.fr       */
+/*   Created: 2022/09/23 22:34:18 by alabdull          #+#    #+#             */
+/*   Updated: 2022/10/12 12:34:22 by alabdull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,12 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (n == 0)
-		return (0);
-	while (n-- && *s1 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-	}
-	if (n == INT_MAX)
-		return (0);
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
-}
+	size_t	i;
 
-// int	ft_strncmp(const char *s1, const char *s2, size_t n)
-// {
-// 	if (n == 0)
-// 		return (0);
-// 	while (n && *s1 && *s2)
-// 	{
-// 		if (*s1 != *s2)
-// 			return (*(unsigned char *)s1 - *(unsigned char *)s2);
-// 		s1++;
-// 		s2++;
-// 		n--;
-// 	}
-// 	if (n > 0)
-// 		return (*(unsigned char *)s1 - *(unsigned char *)s2);
-// 	return (0);
-// }
+	i = 0;
+	if (!n)
+		return (0);
+	while (s1[i] && i < n - 1 && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

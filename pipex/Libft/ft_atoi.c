@@ -3,47 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alabdull <alabdull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 14:44:42 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/27 12:51:49 by vlomakin         ###   ########.fr       */
+/*   Created: 2022/10/02 14:57:45 by alabdull          #+#    #+#             */
+/*   Updated: 2022/11/13 21:25:01 by alabdull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	do_atoi(const char *str, int i, int flag)
+char	ft_iswhitespaces(const int c)
 {
-	long long	result;
-
-	result = 0;
-	while (str[i] && ('0' <= str[i]) && (str[i] <= '9'))
-	{
-		if (flag == 1 && result * 10 < result)
-			return (-1);
-		if (flag == -1 && result * 10 < result)
-			return (0);
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
-	return (flag * result);
+	return (c == ' ' || c == '\n' || c == '\t'
+		|| c == '\v' || c == '\f' || c == '\r');
 }
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	flag;
+	size_t			i;
+	long			n;
+	long long		result;
 
 	i = 0;
-	flag = 1;
-	while (str[i] == ' ' || ((9 <= str[i]) && (str[i] <= 13)))
+	n = 1;
+	result = 0;
+	while (str[i] && ft_iswhitespaces(str[i]))
 		i++;
-	if (str[i] == '+')
+	if (str[i] == '-' && ++i)
+		n = -1;
+	else if (str[i] == '+')
 		i++;
-	else if (str[i] == '-')
+	while (ft_isdigit(str[i]))
 	{
-		flag = -1;
+		if (n == -1 && result * 10 < result)
+			return (0);
+		else if (n == 1 && result * 10 < result)
+			return (-1);
+		result *= 10;
+		result += str[i] - '0';
 		i++;
 	}
-	return (do_atoi(str, i, flag));
+	return (result * n);
 }

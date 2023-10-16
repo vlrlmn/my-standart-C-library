@@ -3,91 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alabdull <alabdull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 16:23:29 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/27 12:59:25 by vlomakin         ###   ########.fr       */
+/*   Created: 2022/10/16 15:21:33 by alabdull          #+#    #+#             */
+/*   Updated: 2022/12/30 21:05:03 by alabdull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(char const *s, char c)
+static int	ft_wordcount(char const *s, char c)
 {
-	int	words;
-	int	counter;
-
-	words = 0;
-	counter = 0;
-	while (*s)
-	{
-		if (*s != c && counter == 0)
-		{
-			counter = 1;
-			words++;
-		}
-		else if (*s == c)
-		{
-			counter = 0;
-		}
-		s++;
-	}
-	return (words);
-}
-
-int	word_length(char const *s, char c)
-{
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (*s)
 	{
-		if (*s != c)
-		{
+		while (*s == c)
 			s++;
+		if (*s)
 			i++;
-		}
-		else
-			return (i);
+		while (*s != c && *s)
+			s++;
 	}
 	return (i);
 }
 
-char	**copy_words(char const *s, char c, int words, char **result)
+static int	ft_wordlen(char const *s, char c, int j)
 {
-	int	i;
-	int	j;
-	int	word_len;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	while (i < words && result)
-	{
-		while (s[j] && s[j] == c)
-			j++;
-		word_len = word_length(&s[j], c);
-		result[i] = malloc(sizeof(char) * (word_len + 1));
-		if (!result[i])
-			return (NULL);
-		ft_strlcpy(result[i], &s[j], word_len + 1);
-		while (s[j] && s[j] != c)
-			j++;
+	while (s[j + i] != c && s[j + i])
 		i++;
-	}
-	result[i] = NULL;
-	return (result);
+	return (i);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	int		words;
+	char	**str;
+	int		i;
+	int		j;
 
 	if (!s)
 		return (NULL);
-	words = count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!result)
+	str = malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
+	if (!str)
 		return (NULL);
-	return (copy_words(s, c, words, result));
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			str[j] = ft_substr(s, i, ft_wordlen(s, c, i));
+			i += ft_wordlen(s, c, i);
+			j++;
+		}
+		else
+			i++;
+	}
+	str[j] = NULL;
+	return (str);
 }

@@ -3,70 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alabdull <alabdull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 12:48:53 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/07/27 12:52:23 by vlomakin         ###   ########.fr       */
+/*   Created: 2022/10/10 21:36:46 by alabdull          #+#    #+#             */
+/*   Updated: 2023/01/11 21:30:04 by alabdull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	num_len(int n)
+static int	ft_nbr(int n)
 {
-	int				i;
-	long long int	h;
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
+static void	ft_strrev(char *str)
+{
+	size_t	i;
+	size_t	len;
+	char	tmp;
 
 	i = 0;
-	h = n;
-	if (h == 0)
+	len = ft_strlen(str) - 1;
+	while (len > i)
 	{
-		return (1);
-	}
-	if (h < 0)
-	{
-		h *= -1;
+		tmp = str[i];
+		str[i] = str[len];
+		str[len] = tmp;
 		i++;
+		len--;
 	}
-	while (h > 0)
+}
+
+int	ft_numlen(int n)
+{
+	int	i;
+
+	i = 0;
+	if (n <= 0)
+		i++;
+	while (n != 0)
 	{
-		h /= 10;
+		n = (n / 10);
 		i++;
 	}
 	return (i);
 }
 
-char	*make_str(int digits, long long int h, int flag)
-{
-	char	*str;
-
-	str = (char *)malloc(sizeof(char) * (digits + 1));
-	if (!str)
-		return (NULL);
-	str[digits] = '\0';
-	while (digits--)
-	{
-		str[digits] = (h % 10) + '0';
-		h /= 10;
-	}
-	if (flag)
-		str[0] = '-';
-	return (str);
-}
-
 char	*ft_itoa(int n)
 {
-	int				digits;
-	int				flag;
-	long long int	h;
+	size_t		i;
+	int			is_neg;
+	char		*value;
 
-	h = n;
-	flag = 0;
-	digits = num_len(h);
-	if (h < 0)
+	is_neg = (n < 0);
+	value = malloc(ft_numlen(n) + 1);
+	if (!value)
+		return (NULL);
+	value[ft_numlen(n)] = '\0';
+	if (n == 0)
+		value[0] = '0';
+	i = 0;
+	while (n != 0)
 	{
-		flag = 1;
-		h = -h;
+		value[i++] = '0' + ft_nbr(n % 10);
+		n = (n / 10);
 	}
-	return (make_str(digits, h, flag));
+	if (is_neg)
+		value[i] = '-';
+	ft_strrev(value);
+	return (value);
 }

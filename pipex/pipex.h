@@ -3,33 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 11:43:28 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/10/12 12:21:05 by vlomakin         ###   ########.fr       */
+/*   Created: 2023/02/15 02:26:38 by alabdull          #+#    #+#             */
+/*   Updated: 2023/10/16 17:39:16 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include "Libft/libft.h"
-# include <errno.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <sys/wait.h>
-# include <errno.h>
 # include <unistd.h>
-# include <limits.h>
-# include <string.h>
+# include <fcntl.h>
+# include <sys/wait.h>
+# include "Libft/libft.h"
 
-void	make_fork(char *argv[], char **envp, int fd[]);
-void	cmd1_exec(char *file1, char *cmd1, int fd[2], char **envp);
-void	cmd2_exec(char *file2, char *cmd2, int fd[2], char **envp);
-void	exec_cmd(char **envp, char *cmd);
-char	*get_path(char **envp, char *cmd);
-char	*find_path(char **envp, char *cmd);
-void	reterr(char *msg);
+int		check_path(char **envp);
+char	*get_path(char *argv, char **envp);
+void	child_process(int *fds, char **argv, char **envp);
+void	parent_process(int *fds, char **argv, char **envp);
+void	fd_error(int fd, int *fds);
+void	execve_error(char **cmd);
+void	arg_error(int exit_1);
+void	free1(char **p);
+void	free2(char **p1, char **p2);
+void call_err(char *msg);
 
 #endif

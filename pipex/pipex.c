@@ -3,114 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinargvaleria <lomakinargvaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 11:43:32 by vlomakin          #+#    #+#             */
-/*   Updated: 2023/10/12 12:33:16 by vlomakin         ###   ########.fr       */
+/*   Created: 2023/02/15 02:27:00 by alabdull          #+#    #+#             */
+/*   Updated: 2023/10/16 17:38:14 by lomakinargval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	exec_cmd(char **envp, char *cmd)
+void	ft_execve(char *argv, char **envp)
 {
+	char	**cmd;
 	char	*path;
-	int		exec_status;
 
-	path = get_path(envp, cmd);
-	if (!path)
+	path = NULL;
+	cmd = ft_split(argv, ' ');
+	path = get_path(cmd[0], envp);
+	if (path)
 	{
-		perror(cmd);
-	}
-	exec_status = execve(path, ft_split(cmd, ' '), envp);
-	if (exec_status == -1)
-	{
-		perror("Failed to complete command");
-	}
-}
-
-void	cmd2_exec(char *file2, char *cmd2, int fd[2], char **envp)
-{
-	int	fd_n;
-
-	close(fd[1]);
-	fd_n = open(file2, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (fd_n == -1)
-	{
-		reterr(file2);
-	}
-	if (dup2(fd[0], STDIN_FILENO) == -1)
-	{
-		reterr("File descriptor is not valid");
+		if (execve(path, cmd, envp) == -1)
+			execve_error(cmd);
 	}
 	else
-		close(fd[0]);
-	if (dup2(fd_n, STDOUT_FILENO) == -1)
-	{
-		reterr("File descriptor is not valid");
-	}
-	exec_cmd(envp, cmd2);
-	exit(EXIT_SUCCESS);
+		execve_error(cmd);
 }
 
-void	cmd1_exec(char *file1, char *cmd1, int fd[2], char **envp)
+void	child_process(int *fds, char **argv, char **envp)
 {
-	int	fd_n;
+	int		fd;
 
-	close(fd[0]);
-	fd_n = open(file1, O_RDONLY);
-	if (fd_n == -1)
-	{
-		reterr(file1);
-	}
-	if (dup2(fd[1], STDOUT_FILENO) == -1)
-	{
-		reterr("File descriptor is not valid");
-	}
-	else
-		close(fd[1]);
-	if (dup2(fd_n, STDIN_FILENO) == -1)
-	{
-		reterr("File descriptor is not valid");
-	}
-	exec_cmd(envp, cmd1);
-	exit(EXIT_SUCCESS);
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		fd_error(fd, fds);
+	dup2(fd, STDIN_FILENO);
+	dup2(fds[1], STDOUT_FILENO);
+	close(fds[0]);
+	ft_execve(argv[2], envp);
 }
 
-void	make_fork(char *argv[], char **envp, int fd[])
+void	parent_process(int *fds, char **argv, char **envp)
 {
-	int	pid;
+	int		fd;
 
-	pid = fork();
-	if (pid == -1)
-	{
-		reterr("Fork failed");
-	}
-	if (pid == 0)
-	{
-		cmd1_exec(argv[1], argv[2], fd, envp);
-	}
-	else
-	{
-		wait(NULL);
-		cmd2_exec(argv[4], argv[3], fd, envp);
-		close(fd[0]);
-		close(fd[1]);
-	}
+	fd = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (fd == -1)
+		fd_error(fd, fds);
+	dup2(fd, STDOUT_FILENO);
+	dup2(fds[0], STDIN_FILENO);
+	close(fds[1]);
+	ft_execve(argv[3], envp);
 }
 
-int	main(int argc, char *argv[], char **envp)
+int	main(int ac, char **argv, char **envpp)
 {
-	int	fd[2];
+	int		fds[2];
+	pid_t	pid;
 
-	if (argc != 5)
+	if (ac != 5)
 	{
 		write(1, "Usage: ./pipex file1 cmd1 cmd2 file2\n", 38);
 		exit(EXIT_FAILURE);
 	}
-	if (pipe(fd) == -1)
-	{
-		reterr("Pipe error");
-	}
-	make_fork(argv, envp, fd);
+	if (pipe(fds) == -1)
+		call_err("Pipe error");
+	pid = fork();
+	if (pid == -1)
+		call_err("Fork error");
+	if (pid == 0)
+		child_process(fds, argv, envpp);
+	wait(NULL);
+	parent_process(fds, argv, envpp);
 }

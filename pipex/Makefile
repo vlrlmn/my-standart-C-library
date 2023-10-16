@@ -1,26 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/13 05:20:48 by alabdull          #+#    #+#              #
+#    Updated: 2023/10/16 17:27:50 by lomakinaval      ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = pipex
 CC = cc
-CFLAGS = -Werror -Wall -Wextra -g3 -fsanitize=address
-RM = rm -rf
-SRCS = pipex.c pipex_utils.c
+SRCS = pipex.c free.c errors.c command_path.c
 OBJS = $(SRCS:.c=.o)
-LIBFT = Libft/libft.a
+LIB = ./Libft/libft.a
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) -LLibft -lft -o $(NAME)
-
-$(LIBFT):
-	make -C Libft
+$(NAME): $(OBJS)
+	@make -sC ./Libft
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME) 
 
 clean:
-	$(RM) $(OBJS)
-	make clean -C Libft 
+	@rm -f $(OBJS)
+	@make clean -sC ./Libft
 
 fclean: clean
-	$(RM) $(NAME)
-	make fclean -C Libft 
+	@rm -f $(NAME)
+	@make fclean -sC ./Libft
 
 re: fclean all
 
