@@ -1,0 +1,4 @@
+int count_collect()
+{
+}
+

@@ -1,33 +1,36 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
-
+CFLAGS = -Wall -Wextra -Werror 
+                        # -g3 -fsanitize=address
 NAME = so_long
 SRC = so_long.c
 OBJ = ${SRC:.c=.o}
 
-MLX_DIR = ./mlx
-UNAME := $(shell uname)
+MLX = cd mlx && make
 
-ifeq ($(UNAME), Linux)
-    INCLUDES = -I/usr/include -Imlx
-    MLX_LIB = $(MLX_DIR)/libmlx_linux.a
-    MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
-else
-    INCLUDES = -I/opt/X11/include -Imlx
-    MLX_LIB = $(MLX_DIR)/libmlx_macos.a
-    MLX_FLAGS = -Lmlx -lmlx -L/opt/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
-endif
+# MLX_DIR = ./mlx
+# UNAME := $(shell uname)
 
-.c.o:
-	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
-
-all: $(MLX_LIB) $(NAME)
+# ifeq ($(UNAME), Linux)
+#     INCLUDES = -I/usr/include -Imlx
+#     MLX_LIB = $(MLX_DIR)/libmlx_linux.a
+#     MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+# else
+#     INCLUDES = -I/opt/X11/include -Imlx
+#     MLX_LIB = $(MLX_DIR)/libmlx_macos.a
+#     MLX_FLAGS = -Lmlx -lmlx -L/opt/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+# endif
+# .c.o:
+# 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX_FLAGS)
+		$(MLX)
+	    @$(CC) $(CFLAGS) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -fsanitize=address
+
+all: $(NAME)
 
 clean:
 	@rm -f $(OBJ)
+	$(MAKE) clean -C mlx
 
 fclean: clean
 	@rm -f $(NAME)
@@ -35,6 +38,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-$(MLX_LIB):
-	@make -C $(MLX_DIR)
