@@ -8,8 +8,6 @@ git clone https://github.com/vlrlmn/my-standart-C-library
 ```
 ---
 
-## 🚀 Projects
-
 ### 1. **Libft**  
 A custom implementation of the C standard library.  
 - 📌 Includes commonly used string manipulation, memory allocation, and utility functions.  
