@@ -17,6 +17,7 @@ Clone this repository and navigate to each project's directory to compile and ru
 git clone https://github.com/vlrlmn/my-standart-C-library
 cd Libft
 make
+```
 ---
 
 ### 2. **get_next_line**  
@@ -28,6 +29,7 @@ A function to read a line from a file descriptor.
 ```bash
 cd ../get_next_line
 make
+```
 ---
 
 ### 3. **ft_printf**  
@@ -39,6 +41,7 @@ A custom implementation of the `printf` function in C.
 ```bash
 cd ../printf
 make
+```
 
 ---
 
@@ -49,4 +52,3 @@ make
 
 ---
 
-## 📂 Directory Structure
