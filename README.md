@@ -2,6 +2,10 @@
 
 This repository contains foundational C programming projects developed during my studies at [42 School](https://42.fr/). These projects showcase my understanding of low-level programming, memory management, and algorithmic thinking.
 
+**Clone this repository and navigate to each project's directory to compile and run the code.**
+```bash
+git clone https://github.com/vlrlmn/my-standart-C-library
+```
 ---
 
 ## 🚀 Projects
@@ -11,10 +15,8 @@ A custom implementation of the C standard library.
 - 📌 Includes commonly used string manipulation, memory allocation, and utility functions.  
 - 🧵 Extended with additional helper functions for personal use (f.e. split python analog - ft_split.c).
 
-Clone this repository and navigate to each project's directory to compile and run the code.
 
 ```bash
-git clone https://github.com/vlrlmn/my-standart-C-library
 cd Libft
 make
 ```
