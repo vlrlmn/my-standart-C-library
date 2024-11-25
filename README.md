@@ -1,4 +1,4 @@
-# 🛠️ My C Foundations Repository
+# 🛠️ C Foundations Repository
 
 This repository contains foundational C programming projects developed during my studies at [42 School](https://42.fr/). These projects showcase my understanding of low-level programming, memory management, and algorithmic thinking.
 
@@ -49,6 +49,4 @@ make
 - **Memory Management:** Manual allocation and deallocation using `malloc` and `free`.
 - **File Descriptors:** Worked with files, standard input/output, and low-level I/O operations.
 - **Custom Implementations:** Rebuilt core functionalities to deepen understanding of C.
-
----
 
