@@ -1,4 +1,0 @@
-int count_collect()
-{
-}
-
